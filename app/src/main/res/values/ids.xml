@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="toolbar" type="id" />
+    <item name="toolbar_title" type="id" />
+    <item name="icon_back" type="id" />
+    <item name="title" type="id" />
+    <item name="description" type="id" />
+    <item name="type" type="id" />
+    <item name="date" type="id" />
+    <item name="save" type="id" />
+    <item name="note_layout" type="id" />
+    <item name="recycler_view" type="id" />
+    <item name="add_button" type="id" />
+    <item name="no_data" type="id" />
+
+</resources>
