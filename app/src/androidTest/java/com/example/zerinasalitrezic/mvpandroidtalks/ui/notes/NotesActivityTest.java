@@ -40,16 +40,6 @@ public class NotesActivityTest {
 
     @Test
     public void clickAddShouldOpenAddNoteUi() throws Exception {
-        //onView() metoda - kako bi pronasli odredjeni view, vraca objekt tipa ViewInteraction
-        //onData() metoda - za AdadpterView, vraca DataInteraction
-        //withId(...) - pretrazuje view po id-u
-        //withText(...) - pretrazuje view s odredjenim tekstom
-        //HamcrestMatchers - containsString ili instanceOf(), kombinacija s allOf(), za iskljuciti: not()
-        //ViewInteraction i DataInteraction dopustaju da odredimo akciju za test preko objekta tipa ViewAction preko perform metode
-        //ViewActions klasa pruza helper metode za vecinu akcija: click(), typeText(), pressKey(), clearText()
-        //perform metoda vraca objekt tipa ViewInteraction na kojem mozemo  izvesti vise akcija ili provjeriti rezultat
-        //ViewInteraction ima check() metodu da utvrdi stanje viewa, ocekuje ViewAssertion objekt kao parametar
-        //ViewAssertions klasa pruza helper metode za kreiranje tih objekta - matches, doesNotExist
         onView(withId(R.id.add_button)).perform(click());
         onView(withId(R.id.title)).check(matches(isDisplayed()));
         onView(withId(R.id.description)).check(matches(isDisplayed()));

@@ -25,11 +25,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * View zahtjeva od prezentera da ucita listu biljeski.
- * Prezenter pita model da ucita listu svih biljeski.
- * Model vraca biljeske prezenteru.
- * Prezenter informira View da update-a podatke.
- * <p>
  * Created by Zerina Salitrezic on 12/09/2017.
  */
 

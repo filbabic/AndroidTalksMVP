@@ -24,7 +24,6 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class AddNoteActivityTest {
 
-    // govori AndroidJUnit runneru koji Activity treba biti pokrenut prije svakog testa i zavrsava nakon sto svaki test zavrsi
     @Rule
     public ActivityTestRule<AddNoteActivity> rule = new ActivityTestRule<>(AddNoteActivity.class);
 
@@ -35,9 +34,6 @@ public class AddNoteActivityTest {
         onView(withId(R.id.save)).check(matches(isDisplayed()));
     }
 
-    // trazi EditText s id-em R.id.description,
-    // napise tekst "Some description" u EditText,
-    // provjeri da EditText ima tekst "Some description"
     @Test
     public void typeTextOnDescription() throws Exception {
         onView(withId(R.id.description)).perform(typeText("Some description")).check(matches(withText("Some description")));

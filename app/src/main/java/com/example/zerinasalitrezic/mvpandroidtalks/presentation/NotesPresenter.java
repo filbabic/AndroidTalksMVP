@@ -12,7 +12,6 @@ import java.util.List;
 
 public class NotesPresenter implements NotesInterface.Presenter {
 
-    // ne zelimo stvoriti memory leak ukoliko Activity bude unisten u bilo kojem trenutku
     private NotesInterface.View view;
     private DatabaseInterface databaseManager;
 

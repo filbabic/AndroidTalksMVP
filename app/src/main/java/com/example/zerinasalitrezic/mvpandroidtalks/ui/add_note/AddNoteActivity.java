@@ -18,10 +18,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Korisnik upisuje podatke o biljesci i klikne na spremi button.
- * Prezenter kreira Note objekt s unesenim podacima od korisnika i pita model da unese biljesku u bazu.
- * Model unosi biljesku u bazu, a prezenter informira View da je uspjesno spremljena nova biljeska.
-
  * Created by Zerina Salitrezic on 04/09/2017.
  */
 

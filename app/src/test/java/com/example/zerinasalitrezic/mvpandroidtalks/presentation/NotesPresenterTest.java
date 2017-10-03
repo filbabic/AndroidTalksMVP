@@ -38,8 +38,6 @@ public class NotesPresenterTest {
 
     @Before
     public void setUp() throws Exception {
-        // inicijalizira polja koja imaju Mockito anotacije, ali to ne treba kad imamo @RunWith
-        // MockitoAnnotations.initMocks(this);
         presenter = new NotesPresenter(database);
         presenter.setView(view);
     }
