@@ -1,4 +1,4 @@
-package com.example.zerinasalitrezic.mvpandroidtalks.ui.operations;
+package com.example.zerinasalitrezic.mvpandroidtalks.common.utils;
 
 /**
  * Created by Zerina Salitrezic on 08/09/2017.

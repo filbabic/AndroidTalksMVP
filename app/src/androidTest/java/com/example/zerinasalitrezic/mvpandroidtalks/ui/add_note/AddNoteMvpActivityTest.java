@@ -22,10 +22,10 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class AddNoteActivityTest {
+public class AddNoteMvpActivityTest {
 
     @Rule
-    public ActivityTestRule<AddNoteActivity> rule = new ActivityTestRule<>(AddNoteActivity.class);
+    public ActivityTestRule<AddNoteMvpActivity> rule = new ActivityTestRule<>(AddNoteMvpActivity.class);
 
     @Test
     public void checkAreViewsDisplayed() throws Exception {
@@ -35,12 +35,14 @@ public class AddNoteActivityTest {
     }
 
     @Test
-    public void typeTextOnDescription() throws Exception {
-        onView(withId(R.id.description)).perform(typeText("Some description")).check(matches(withText("Some description")));
+    public void typeDescriptionCheckEnteredText() throws Exception {
+        onView(withId(R.id.description))
+                .perform(typeText("Some description"))
+                .check(matches(withText("Some description")));
     }
 
     @Test
-    public void addForm() throws Exception {
+    public void fillFormClickSave() throws Exception {
         onView(withId(R.id.title)).perform(typeText("Some title"));
         onView(withId(R.id.description)).perform(typeText("Some description"));
         onView(withId(R.id.save)).perform(click());

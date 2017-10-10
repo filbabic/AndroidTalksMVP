@@ -10,10 +10,7 @@ import android.widget.Toast;
 
 import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
-import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.ValidationUtils;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
-import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnFormValidationListener;
+import com.example.zerinasalitrezic.mvpandroidtalks.presentation.AddNotePresenter;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -21,10 +18,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by Zerina Salitrezic on 07/10/2017.
+ * Created by Zerina Salitrezic on 04/09/2017.
  */
 
-public class AddNoteActivity extends AppCompatActivity implements OnFormValidationListener {
+public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInterface.View {
 
     @BindView(R.id.title)
     TextView title;
@@ -37,6 +34,8 @@ public class AddNoteActivity extends AppCompatActivity implements OnFormValidati
 
     @BindString(R.string.success_added_note)
     String successAddedNote;
+
+    private AddNoteInterface.Presenter presenter;
 
     public static Intent getLaunchIntent(Context from) {
         return new Intent(from, AddNoteMvpActivity.class);
@@ -51,33 +50,41 @@ public class AddNoteActivity extends AppCompatActivity implements OnFormValidati
 
     private void initUi() {
         ButterKnife.bind(this);
+        setPresenter();
+    }
+
+    private void setPresenter() {
+        presenter = new AddNotePresenter(App.getDatabaseManager());
+        presenter.setView(this);
     }
 
     @OnClick(R.id.save)
     void onClickSaveButton() {
-        DatabaseInterface database = App.getDatabaseManager();
-        String titleInput = title.getText().toString();
-        String descriptionInput = description.getText().toString();
-        boolean isFormValid = ValidationUtils.isFormValid(titleInput, descriptionInput, this);
-        if (isFormValid) {
-            database.addNote(new NoteModel(titleInput, descriptionInput, System.currentTimeMillis()));
-            Toast.makeText(App.getInstance(), successAddedNote, Toast.LENGTH_SHORT).show();
-            finish();
-        }
+        presenter.clickedSaveButton(title.getText().toString(), description.getText().toString());
     }
 
     @OnClick(R.id.icon_back)
     void onClickIconBack() {
-        finish();
+        presenter.clickedIconBack();
     }
 
     @Override
-    public void onTitleInvalid() {
+    public void showTitleError() {
         title.setError(emptyError);
     }
 
     @Override
-    public void onDescriptionInvalid() {
+    public void showDescriptionError() {
         description.setError(emptyError);
+    }
+
+    @Override
+    public void showNoteSuccessAdded() {
+        Toast.makeText(App.getInstance(), successAddedNote, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void goBack() {
+        finish();
     }
 }

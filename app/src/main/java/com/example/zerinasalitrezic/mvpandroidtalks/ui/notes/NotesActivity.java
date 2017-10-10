@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.DialogUtils;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseManager;
+import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteActivity;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnConfirmDeletingListener;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnItemLongClickListener;
@@ -23,7 +23,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.realm.Realm;
 
 /**
  * Created by Zerina Salitrezic on 04/09/2017.
@@ -66,7 +65,7 @@ public class NotesActivity extends AppCompatActivity implements OnItemLongClickL
     }
 
     private void getNotesFromDatabase() {
-        database = new DatabaseManager(Realm.getDefaultInstance());
+        database = App.getDatabaseManager();
         List<NoteModel> notes = database.getNotes();
         if (notes != null && !notes.isEmpty()) {
             noData.setVisibility(View.GONE);

@@ -13,7 +13,7 @@ import com.example.zerinasalitrezic.mvpandroidtalks.R;
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.DialogUtils;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.presentation.NotesPresenter;
-import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteActivity;
+import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteMvpActivity;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnConfirmDeletingListener;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnItemLongClickListener;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.notes.list.NotesAdapter;
@@ -92,7 +92,7 @@ public class NotesMvpActivity extends AppCompatActivity implements NotesInterfac
 
     @Override
     public void openAddNoteActivity() {
-        startActivity(AddNoteActivity.getLaunchIntent(this));
+        startActivity(AddNoteMvpActivity.getLaunchIntent(this));
     }
 
     @Override

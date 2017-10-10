@@ -1,4 +1,4 @@
-package com.example.zerinasalitrezic.mvpandroidtalks.ui.operations;
+package com.example.zerinasalitrezic.mvpandroidtalks.common.utils;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -8,7 +8,7 @@ import org.junit.rules.ExpectedException;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Zerina Salitrezic on 08/09/2017.
+ * Created by Zerina Salitrezic on 07/10/2017.
  */
 
 public class OperationsTest {
