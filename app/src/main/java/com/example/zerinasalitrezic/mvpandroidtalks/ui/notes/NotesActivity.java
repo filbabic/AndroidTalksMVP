@@ -76,10 +76,8 @@ public class NotesActivity extends AppCompatActivity implements OnItemLongClickL
     }
 
     @Override
-    public void onItemLongClick(NoteModel noteModel) {
-        if (noteModel != null) {
-            DialogUtils.showInfoDialog(this, noteModel.getId(), this);
-        }
+    public void onItemLongClick(int noteId) {
+        DialogUtils.showInfoDialog(this, noteId, this);
     }
 
     @Override

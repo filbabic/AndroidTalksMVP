@@ -37,10 +37,6 @@ aapp/src/main/java/com/example/zerinasalitrezic/mvpandroidtalks/presentation/Add
 _app/src/main/java/com/example/zerinasalitrezic/mvpandroidtalks/presentation/NotesPresenter.java,b/4/b4c495b33c6937c9d1ff60b2e011f4744ca56c27
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
-É
-Sapp/src/test/java/com/example/zerinasalitrezic/mvpandroidtalks/ExampleUnitTest.java,d/4/d4e6205cdbec048e6514909e870e649d54b87a41
-ï
-eapp/src/androidTest/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/notes/NotesActivityTest.java,8/b/8bef0d43ac8ae32d89d6b294eae89b42bc4ba0bf
 ï
 eapp/src/test/java/com/example/zerinasalitrezic/mvpandroidtalks/presentation/AddNotePresenterTest.java,5/3/53438b60f677cc34a3b0f5b4b52db8e4c0de0e70
 ì
@@ -53,8 +49,6 @@ Sapp/src/test/java/com/example/zerinasalitrezic/mvpandroidtalks/utils/TestUtils.
 happ/src/main/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/listeners/OnItemLongClickListener.java,d/2/d2e43332fb9b4ff3c2d81694e423978cccbe9c7f
 ö
 japp/src/main/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/listeners/OnConfirmDeletingListener.java,d/d/dd0e04ca91d6e37551e655f640afed6a3cb976b5
-í
-bapp/src/androidTest/java/com/example/zerinasalitrezic/mvpandroidtalks/ExampleInstrumentedTest.java,f/4/f4d69759d3b3ae40564019973835b3612cb9e0a4
 ç
 ]app/src/main/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/notes/NotesMvpActivity.java,8/d/8d66683ee8dbc614a4a4419ef39072bb8438e74e
 â
@@ -106,3 +100,5 @@ _app/src/test/java/com/example/zerinasalitrezic/mvpandroidtalks/common/utils/Ope
 bapp/src/main/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/add_note/AddNoteMvpActivity.java,a/6/a631dc6d3b4e1832fe80bb1fdfc8984b536e2274
 ù
 mapp/src/androidTest/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/add_note/AddNoteMvpActivityTest.java,b/d/bdbe928af57e3923745fd48dc581fa1745f2b8dc
+ò
+happ/src/androidTest/java/com/example/zerinasalitrezic/mvpandroidtalks/ui/notes/NotesMvpActivityTest.java,a/e/aeb325cfbe4d917776ff089cd89c9d3d2c151998

@@ -43,10 +43,11 @@ public class DatabaseManager implements DatabaseInterface {
     }
 
     @Override
-    public void deleteNote(int noteId) {
+    public boolean deleteNote(int noteId) {
         realm.beginTransaction();
         RealmResults<NoteModel> results = realm.where(NoteModel.class).equalTo(Constants.ID, noteId).findAll();
-        results.deleteAllFromRealm();
+        boolean isDeleted = results.deleteAllFromRealm();
         realm.commitTransaction();
+        return isDeleted;
     }
 }

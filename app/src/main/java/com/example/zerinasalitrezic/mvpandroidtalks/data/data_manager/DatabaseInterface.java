@@ -14,5 +14,5 @@ public interface DatabaseInterface {
 
     List<NoteModel> getNotes();
 
-    void deleteNote(int noteId);
+    boolean deleteNote(int noteId);
 }

@@ -20,7 +20,7 @@ public interface NotesInterface {
 
         void hideNoData();
 
-        void showDeleteNoteDialog(NoteModel noteModel);
+        void showDeleteNoteDialog(int noteId);
 
         void updateNotesList(int noteId);
     }
@@ -33,7 +33,7 @@ public interface NotesInterface {
 
         void clickedAddButton();
 
-        void longClickedNoteItem(NoteModel noteModel);
+        void longClickedNoteItem(int noteId);
 
         void clickedDeleteNote(int noteId);
     }

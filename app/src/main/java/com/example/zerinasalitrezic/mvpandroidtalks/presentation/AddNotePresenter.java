@@ -1,8 +1,8 @@
 package com.example.zerinasalitrezic.mvpandroidtalks.presentation;
 
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.ValidationUtils;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
+import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteInterface;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnFormValidationListener;
 

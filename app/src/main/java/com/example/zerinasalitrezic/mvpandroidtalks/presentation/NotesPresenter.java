@@ -41,15 +41,16 @@ public class NotesPresenter implements NotesInterface.Presenter {
     }
 
     @Override
-    public void longClickedNoteItem(NoteModel noteModel) {
-        if (noteModel != null) {
-            view.showDeleteNoteDialog(noteModel);
-        }
+    public void longClickedNoteItem(int noteId) {
+        view.showDeleteNoteDialog(noteId);
     }
 
     @Override
     public void clickedDeleteNote(int noteId) {
-        databaseManager.deleteNote(noteId);
-        view.updateNotesList(noteId);
+        boolean isNoteDeleted = databaseManager.deleteNote(noteId);
+
+        if (isNoteDeleted) {
+            view.updateNotesList(noteId);
+        }
     }
 }

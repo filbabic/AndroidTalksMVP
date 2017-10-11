@@ -30,7 +30,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
     TextView date;
 
     private OnItemLongClickListener onItemLongClickListener;
-    private NoteModel noteModel;
+    private int noteId;
 
     public NotesViewHolder(View itemView, OnItemLongClickListener onItemLongClickListener) {
         super(itemView);
@@ -40,7 +40,7 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
 
     public void setNoteData(NoteModel noteModel) {
         if (noteModel != null) {
-            this.noteModel = noteModel;
+            noteId = noteModel.getId();
             setTitle(noteModel.getTitle());
             setDescription(noteModel.getDescription());
             setDate(noteModel.getDate());
@@ -68,8 +68,8 @@ public class NotesViewHolder extends RecyclerView.ViewHolder {
 
     @OnLongClick(R.id.note_layout)
     boolean onLongClickArticleLayout() {
-        if (onItemLongClickListener != null && noteModel != null) {
-            onItemLongClickListener.onItemLongClick(noteModel);
+        if (onItemLongClickListener != null) {
+            onItemLongClickListener.onItemLongClick(noteId);
         }
         return false;
     }

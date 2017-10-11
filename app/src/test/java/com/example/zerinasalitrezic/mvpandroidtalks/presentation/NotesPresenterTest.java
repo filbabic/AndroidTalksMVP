@@ -1,7 +1,7 @@
 package com.example.zerinasalitrezic.mvpandroidtalks.presentation;
 
-import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
+import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.notes.NotesInterface;
 import com.example.zerinasalitrezic.mvpandroidtalks.utils.TestUtils;
 
@@ -13,13 +13,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 
-import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyListOf;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by Zerina Salitrezic on 08/09/2017.
@@ -44,9 +40,13 @@ public class NotesPresenterTest {
 
     @Test
     public void getNotesNullNotes() throws Exception {
+        //arrange 
         when(database.getNotes()).thenReturn(null);
+
+        //act
         presenter.getNotes();
 
+        //assert
         verify(database).getNotes();
         verify(view).showNoData();
         verifyNoMoreInteractions(view, database);
@@ -82,22 +82,16 @@ public class NotesPresenterTest {
     }
 
     @Test
-    public void longClickedNoteItemNullNoteModel() throws Exception {
-        presenter.longClickedNoteItem(null);
+    public void longClickedNoteItem() throws Exception {
+        presenter.longClickedNoteItem(TestUtils.NOTE_ID);
 
-        verifyZeroInteractions(view, database);
-    }
-
-    @Test
-    public void longClickedNoteItemValidNoteModel() throws Exception {
-        presenter.longClickedNoteItem(TestUtils.mockNoteModel());
-
-        verify(view).showDeleteNoteDialog(any(NoteModel.class));
+        verify(view).showDeleteNoteDialog(anyInt());
         verifyNoMoreInteractions(view, database);
     }
 
     @Test
     public void deleteNoteShouldDeleteNoteFromDatabaseUpdateList() throws Exception {
+        when(database.deleteNote(TestUtils.NOTE_ID)).thenReturn(true);
         presenter.clickedDeleteNote(TestUtils.NOTE_ID);
 
         verify(database).deleteNote(anyInt());

@@ -38,7 +38,7 @@ public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInte
     private AddNoteInterface.Presenter presenter;
 
     public static Intent getLaunchIntent(Context from) {
-        return new Intent(from, AddNoteMvpActivity.class);
+        return new Intent(from, AddNoteActivity.class);
     }
 
     @Override
