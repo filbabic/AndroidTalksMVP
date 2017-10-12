@@ -5,7 +5,7 @@ import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import java.util.List;
 
 /**
- * Created by Zerina Salitrezic on 04/09/2017.
+ * Created by Zerina Salitrezic on 11/10/2017.
  */
 
 public interface NotesInterface {

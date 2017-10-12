@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.notes.NotesActivity"
+            android:name=".ui.notes.NotesMvpActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.notes.NotesMvpActivity"
+            android:name=".ui.notes.NotesActivity"
             android:screenOrientation="portrait" />
 
     </application>

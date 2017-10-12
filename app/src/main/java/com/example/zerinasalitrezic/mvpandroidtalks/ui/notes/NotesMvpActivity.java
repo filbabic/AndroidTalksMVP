@@ -28,7 +28,7 @@ import butterknife.OnClick;
  * Created by Zerina Salitrezic on 12/09/2017.
  */
 
-public class NotesMvpActivity extends AppCompatActivity implements OnItemLongClickListener, OnConfirmDeletingListener, NotesInterface.View {
+public class NotesMvpActivity extends AppCompatActivity implements OnItemLongClickListener, NotesInterface.View, OnConfirmDeletingListener {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -114,5 +114,4 @@ public class NotesMvpActivity extends AppCompatActivity implements OnItemLongCli
     public void updateNotesList(int noteId) {
         notesAdapter.deleteNote(noteId);
     }
-
 }
