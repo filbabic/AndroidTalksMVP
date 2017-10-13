@@ -8,10 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.DialogUtils;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
+import com.example.zerinasalitrezic.mvpandroidtalks.di.injector.Injectable;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteMvpActivity;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnConfirmDeletingListener;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnItemLongClickListener;
@@ -29,7 +29,7 @@ import butterknife.OnClick;
  * Created by Zerina Salitrezic on 12/09/2017.
  */
 
-public class NotesMvpActivity extends AppCompatActivity implements OnItemLongClickListener, NotesInterface.View, OnConfirmDeletingListener {
+public class NotesMvpActivity extends AppCompatActivity implements OnItemLongClickListener, NotesInterface.View, OnConfirmDeletingListener, Injectable {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -51,7 +51,6 @@ public class NotesMvpActivity extends AppCompatActivity implements OnItemLongCli
     }
 
     private void injectDependencies() {
-        App.getAppComponent().inject(this);
         presenter.setView(this);
     }
 

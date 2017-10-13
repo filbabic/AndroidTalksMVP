@@ -5,6 +5,8 @@ import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -16,6 +18,7 @@ public class DatabaseManager implements DatabaseInterface {
 
     private Realm realm;
 
+    @Inject
     public DatabaseManager(Realm realm) {
         this.realm = realm;
     }

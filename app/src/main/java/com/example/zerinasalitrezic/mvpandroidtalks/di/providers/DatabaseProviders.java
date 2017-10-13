@@ -1,7 +1,5 @@
-package com.example.zerinasalitrezic.mvpandroidtalks.di.module;
+package com.example.zerinasalitrezic.mvpandroidtalks.di.providers;
 
-import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseManager;
 import com.example.zerinasalitrezic.mvpandroidtalks.di.scope.ApplicationScope;
 
 import dagger.Module;
@@ -15,7 +13,9 @@ import io.realm.RealmConfiguration;
 
 @Module
 @ApplicationScope
-public class DatabaseModule {
+public class DatabaseProviders {
+
+    //standard definition of providers, used only for things that do not have a regular constructor
 
     @Provides
     public RealmConfiguration provideRealmConfiguration() {
@@ -26,10 +26,4 @@ public class DatabaseModule {
     public Realm provideRealm(RealmConfiguration configuration) {
         return Realm.getInstance(configuration);
     }
-
-    @Provides
-    public DatabaseInterface provideDatabase(Realm realm) {
-        return new DatabaseManager(realm);
-    }
-
 }

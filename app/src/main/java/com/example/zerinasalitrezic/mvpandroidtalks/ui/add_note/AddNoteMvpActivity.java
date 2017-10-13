@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
+import com.example.zerinasalitrezic.mvpandroidtalks.di.injector.Injectable;
 
 import javax.inject.Inject;
 
@@ -22,7 +23,7 @@ import butterknife.OnClick;
  * Created by Zerina Salitrezic on 04/09/2017.
  */
 
-public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInterface.View {
+public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInterface.View, Injectable {
 
     @BindView(R.id.title)
     TextView title;
@@ -52,7 +53,6 @@ public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInte
     }
 
     private void injectDependencies() {
-        App.getAppComponent().inject(this);
         presenter.setView(this);
     }
 

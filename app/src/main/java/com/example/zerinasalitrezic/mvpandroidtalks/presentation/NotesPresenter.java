@@ -6,6 +6,8 @@ import com.example.zerinasalitrezic.mvpandroidtalks.ui.notes.NotesInterface;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 /**
  * Created by Zerina Salitrezic on 11/10/2017.
  */
@@ -15,6 +17,7 @@ public class NotesPresenter implements NotesInterface.Presenter {
     private NotesInterface.View view;
     private DatabaseInterface databaseManager;
 
+    @Inject
     public NotesPresenter(DatabaseInterface databaseInterface) {
         this.databaseManager = databaseInterface;
     }

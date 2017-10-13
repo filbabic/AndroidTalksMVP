@@ -6,6 +6,8 @@ import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteInterface;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnFormValidationListener;
 
+import javax.inject.Inject;
+
 /**
  * Created by Zerina Salitrezic on 04/09/2017.
  */
@@ -15,6 +17,7 @@ public class AddNotePresenter implements AddNoteInterface.Presenter, OnFormValid
     private AddNoteInterface.View view;
     private DatabaseInterface databaseManager;
 
+    @Inject
     public AddNotePresenter(DatabaseInterface databaseInterface) {
         this.databaseManager = databaseInterface;
     }
