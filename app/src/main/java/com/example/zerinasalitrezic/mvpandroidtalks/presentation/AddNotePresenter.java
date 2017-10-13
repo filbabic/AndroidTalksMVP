@@ -16,7 +16,7 @@ public class AddNotePresenter implements AddNoteInterface.Presenter, OnFormValid
     private DatabaseInterface databaseManager;
 
     public AddNotePresenter(DatabaseInterface databaseInterface) {
-        databaseManager = databaseInterface;
+        this.databaseManager = databaseInterface;
     }
 
     @Override

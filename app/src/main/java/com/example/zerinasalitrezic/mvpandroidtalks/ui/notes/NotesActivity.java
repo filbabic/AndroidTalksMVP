@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.DialogUtils;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
@@ -64,8 +63,9 @@ public class NotesActivity extends AppCompatActivity implements OnItemLongClickL
         getNotesFromDatabase();
     }
 
+    //we're not using App to provide dependencies anymore
     private void getNotesFromDatabase() {
-        database = App.getDatabaseManager();
+//        database = App.getDatabaseManager();
         List<NoteModel> notes = database.getNotes();
         if (notes != null && !notes.isEmpty()) {
             noData.setVisibility(View.GONE);

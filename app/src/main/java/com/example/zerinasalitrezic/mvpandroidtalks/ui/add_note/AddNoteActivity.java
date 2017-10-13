@@ -11,8 +11,6 @@ import android.widget.Toast;
 import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.ValidationUtils;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.data_manager.DatabaseInterface;
-import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnFormValidationListener;
 
 import butterknife.BindString;
@@ -54,13 +52,13 @@ public class AddNoteActivity extends AppCompatActivity implements OnFormValidati
     }
 
     @OnClick(R.id.save)
-    void onClickSaveButton() {
-        DatabaseInterface database = App.getDatabaseManager();
+    void onClickSaveButton() { //comment the database out because we dont provide through the app anymore
+//        DatabaseInterface database = App.getDatabaseManager();
         String titleInput = title.getText().toString();
         String descriptionInput = description.getText().toString();
         boolean isFormValid = ValidationUtils.isFormValid(titleInput, descriptionInput, this);
         if (isFormValid) {
-            database.addNote(new NoteModel(titleInput, descriptionInput, System.currentTimeMillis()));
+//            database.addNote(new NoteModel(titleInput, descriptionInput, System.currentTimeMillis()));
             Toast.makeText(App.getInstance(), successAddedNote, Toast.LENGTH_SHORT).show();
             finish();
         }

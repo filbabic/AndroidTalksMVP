@@ -16,7 +16,7 @@ public class NotesPresenter implements NotesInterface.Presenter {
     private DatabaseInterface databaseManager;
 
     public NotesPresenter(DatabaseInterface databaseInterface) {
-        databaseManager = databaseInterface;
+        this.databaseManager = databaseInterface;
     }
 
     @Override
@@ -27,6 +27,7 @@ public class NotesPresenter implements NotesInterface.Presenter {
     @Override
     public void getNotes() {
         List<NoteModel> notes = databaseManager.getNotes();
+
         if (notes != null && !notes.isEmpty()) {
             view.hideNoData();
             view.showNotes(notes);

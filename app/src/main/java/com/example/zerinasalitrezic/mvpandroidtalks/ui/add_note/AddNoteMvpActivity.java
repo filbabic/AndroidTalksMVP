@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
-import com.example.zerinasalitrezic.mvpandroidtalks.presentation.AddNotePresenter;
+
+import javax.inject.Inject;
 
 import butterknife.BindString;
 import butterknife.BindView;
@@ -35,10 +36,11 @@ public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInte
     @BindString(R.string.success_added_note)
     String successAddedNote;
 
-    private AddNoteInterface.Presenter presenter;
+    @Inject
+    AddNoteInterface.Presenter presenter;
 
     public static Intent getLaunchIntent(Context from) {
-        return new Intent(from, AddNoteActivity.class);
+        return new Intent(from, AddNoteMvpActivity.class);
     }
 
     @Override
@@ -46,16 +48,16 @@ public class AddNoteMvpActivity extends AppCompatActivity implements AddNoteInte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
         initUi();
+        injectDependencies();
+    }
+
+    private void injectDependencies() {
+        App.getAppComponent().inject(this);
+        presenter.setView(this);
     }
 
     private void initUi() {
         ButterKnife.bind(this);
-        setPresenter();
-    }
-
-    private void setPresenter() {
-        presenter = new AddNotePresenter(App.getDatabaseManager());
-        presenter.setView(this);
     }
 
     @OnClick(R.id.save)

@@ -12,13 +12,14 @@ import com.example.zerinasalitrezic.mvpandroidtalks.App;
 import com.example.zerinasalitrezic.mvpandroidtalks.R;
 import com.example.zerinasalitrezic.mvpandroidtalks.common.utils.DialogUtils;
 import com.example.zerinasalitrezic.mvpandroidtalks.data.models.NoteModel;
-import com.example.zerinasalitrezic.mvpandroidtalks.presentation.NotesPresenter;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.add_note.AddNoteMvpActivity;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnConfirmDeletingListener;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.listeners.OnItemLongClickListener;
 import com.example.zerinasalitrezic.mvpandroidtalks.ui.notes.list.NotesAdapter;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,13 +38,21 @@ public class NotesMvpActivity extends AppCompatActivity implements OnItemLongCli
     TextView noData;
 
     private NotesAdapter notesAdapter;
-    private NotesInterface.Presenter presenter;
+
+    @Inject
+    NotesInterface.Presenter presenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
         initUi();
+        injectDependencies();
+    }
+
+    private void injectDependencies() {
+        App.getAppComponent().inject(this);
+        presenter.setView(this);
     }
 
     private void initUi() {
@@ -60,8 +69,6 @@ public class NotesMvpActivity extends AppCompatActivity implements OnItemLongCli
     }
 
     private void setPresenter() {
-        presenter = new NotesPresenter(App.getDatabaseManager());
-        presenter.setView(this);
     }
 
     @Override

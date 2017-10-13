@@ -21,15 +21,7 @@
         </activity>
 
         <activity
-            android:name=".ui.add_note.AddNoteActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
             android:name=".ui.add_note.AddNoteMvpActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.notes.NotesActivity"
             android:screenOrientation="portrait" />
 
     </application>
