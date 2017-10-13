@@ -16,6 +16,7 @@ import io.realm.RealmConfiguration;
 public class DatabaseProviders {
 
     //standard definition of providers, used only for things that do not have a regular constructor
+    //or that cannot be created with us (such as Context, or Realm in this case)
 
     @Provides
     public RealmConfiguration provideRealmConfiguration() {

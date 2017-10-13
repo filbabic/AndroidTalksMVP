@@ -27,6 +27,7 @@ public interface AppComponent {
     interface Builder {
 
         //this means that wherever we use Context we do not have to provide it, we use the App
+        //it's just here for showcase, we don't need context for now
         @BindsInstance
         Builder app(Context app);
 
